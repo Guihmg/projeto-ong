@@ -333,3 +333,14 @@ button[type="submit"]:hover {
     display: block; /* Garante que ocupe sua própria linha */
     margin-top: var(--espaco-xs);
 }
+/* =================================
+   12. ACESSIBILIDADE
+   ================================= */
+
+/* Estilo de foco visível para qualquer elemento interativo */
+:focus-visible {
+    outline: 3px solid var(--cor-secundaria); /* Borda amarela bem visível */
+    outline-offset: 2px; /* Um pequeno espaço entre o elemento e a borda */
+    box-shadow: 0 0 0 5px rgba(0, 87, 168, 0.5); /* Uma sombra azul para mais destaque */
+    border-radius: 4px; /* Arredonda o foco para combinar com o design */
+}

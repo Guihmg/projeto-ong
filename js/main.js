@@ -5,14 +5,25 @@
 // Espera o documento HTML ser completamente carregado
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- INICIALIZA O MENU HAMBÚRGUER ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.querySelector('.navegacao-principal');
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('ativo');
-        });
-    }
+// --- INICIALIZA O MENU HAMBÚRGUER ---
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('.navegacao-principal');
+if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('ativo');
+
+        // --- LINHAS NOVAS PARA ACESSIBILIDADE ---
+        const menuEstaAtivo = nav.classList.contains('ativo');
+        menuToggle.setAttribute('aria-expanded', menuEstaAtivo);
+        if (menuEstaAtivo) {
+            menuToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+        } else {
+            menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        }
+    
+    });
+}
+
 
     // --- INICIALIZA A VALIDAÇÃO DO FORMULÁRIO ---
     // (Esta função será chamada novamente sempre que o conteúdo for trocado pela SPA)

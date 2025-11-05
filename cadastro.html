@@ -9,14 +9,14 @@
 <body>
 
     <header class="cabecalho">
-        <h1><a href="index.html">Instituto Justo</a></h1>
+        <h1><a href="index.html" aria-label="Página Inicial do Instituto Justo">Instituto Justo</a></h1>
 
-        <button class="menu-hamburguer" id="menu-toggle">
-        <span class="hamburguer-linha"></span>
-        <span class="hamburguer-linha"></span>
-        <span class="hamburguer-linha"></span>
+        <button class="menu-hamburguer" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navegacao-principal">
+            <span class="hamburguer-linha"></span>
+            <span class="hamburguer-linha"></span>
+            <span class="hamburguer-linha"></span>
     </button>
-        <nav>
+        <nav class="navegacao-principal" id="navegacao-principal" aria-label="Navegação Principal">
             <a href="index.html">Início</a>
             <a href="projetos.html">Projetos</a>
             <a href="cadastro.html">Seja um Voluntário</a>
