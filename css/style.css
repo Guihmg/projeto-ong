@@ -322,3 +322,14 @@ button[type="submit"]:hover {
         margin: 1rem 0;
     }
 }
+
+/* =================================
+   11. ESTILOS DE VALIDAÇÃO DE FORMULÁRIO
+   ================================= */
+
+.mensagem-erro {
+    color: var(--cor-erro); /* Usa a variável de cor de erro que já definimos */
+    font-size: var(--tamanho-pequeno);
+    display: block; /* Garante que ocupe sua própria linha */
+    margin-top: var(--espaco-xs);
+}
