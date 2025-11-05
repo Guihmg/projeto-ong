@@ -1,0 +1,324 @@
+/* =================================
+   1. VARIÁVEIS E DEFINIÇÕES GLOBAIS
+   ================================= */
+
+:root {
+    /* Paleta de Cores */
+    --cor-primaria: #0057a8;       /* Azul do logo do Instituto */
+    --cor-secundaria: #f2a900;     /* Amarelo/Laranja para destaque */
+    --cor-fundo: #f4f4f9;          /* Um cinza bem claro para o fundo */
+    --cor-texto: #333333;          /* Cinza escuro para textos */
+    --cor-branco: #ffffff;         /* Branco puro */
+    --cor-sucesso: #28a745;        /* Verde para validação */
+    --cor-erro: #dc3545;           /* Vermelho para erros */
+    --cor-borda: #dddddd;          /* Cinza claro para bordas */
+
+    /* Tipografia */
+    --fonte-principal: 'Helvetica', Arial, sans-serif;
+    --tamanho-base: 16px; /* 1rem */
+    --tamanho-h1: 2.5rem;   /* 40px */
+    --tamanho-h2: 1.8rem;   /* ~29px */
+    --tamanho-p: 1rem;      /* 16px */
+    --tamanho-pequeno: 0.875rem; /* 14px */
+
+    /* Espaçamento Modular */
+    --espaco-xs: 8px;   /* Extra Pequeno */
+    --espaco-s: 16px;   /* Pequeno */
+    --espaco-m: 24px;   /* Médio */
+    --espaco-l: 32px;   /* Grande */
+    --espaco-xl: 48px;  /* Extra Grande */
+}
+
+/* =================================
+   2. RESET E ESTILOS DE BASE
+   ================================= */
+body {
+    font-family: var(--fonte-principal);
+    font-size: var(--tamanho-base);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+
+    /* --- NOVIDADES DO GRID --- */
+    display: grid;
+    grid-template-areas:
+        "cabecalho"
+        "conteudo"
+        "rodape";
+    grid-template-rows: auto 1fr auto; /* Cabeçalho e rodapé com altura automática, conteúdo ocupa o resto */
+    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da tela */
+}
+
+/* =================================
+   3. ESTILOS DO CABEÇALHO
+   ================================= */
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-s) var(--espaco-m); /* 16px em cima/baixo, 24px nas laterais */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: var(--tamanho-h1);
+}
+
+nav a {
+    color: var(--cor-branco);
+    text-decoration: none; /* Remove o sublinhado dos links */
+    margin-left: var(--espaco-s); /* Adiciona um espaço à esquerda de cada link */
+    font-weight: bold; /* Deixa a fonte em negrito */
+}
+
+nav a:hover {
+    color: var(--cor-secundaria); /* Muda a cor quando o mouse passa por cima */
+    text-decoration: underline; /* Adiciona um sublinhado no hover */
+}
+/* =================================
+   4. ESTILOS DO CONTEÚDO PRINCIPAL
+   ================================= */
+
+.conteudo-principal {
+    max-width: 960px; /* Define uma largura máxima para o conteúdo */
+    margin: var(--espaco-l) auto; /* Centraliza o conteúdo na página */
+    padding: var(--espaco-m); /* Adiciona um espaçamento interno */
+}
+
+section {
+    margin-bottom: var(--espaco-xl); /* Adiciona um espaço abaixo de cada seção */
+}
+
+main h1, main h2 {
+    color: var(--cor-primaria); /* Deixa os títulos dentro do main com a cor azul */
+}
+
+img {
+    max-width: 100%; /* Garante que as imagens nunca ultrapassem a largura do seu contêiner */
+    height: auto;    /* Mantém a proporção da imagem ao redimensionar */
+    display: block;  /* Remove pequenos espaços que podem aparecer abaixo da imagem */
+    margin: var(--espaco-s) 0; /* Adiciona um espaço em cima e embaixo da imagem */
+}
+/* =================================
+   5. ESTILOS DO RODAPÉ
+   ================================= */
+
+footer {
+    background-color: #333333; /* Usando um cinza escuro, diferente do azul */
+    color: var(--cor-branco);
+    text-align: center; /* Centraliza todo o texto dentro do rodapé */
+    padding: var(--espaco-m);
+    margin-top: var(--espaco-xl); /* Adiciona um espaço acima do rodapé */
+}
+
+footer p {
+    margin: var(--espaco-xs) 0; /* Adiciona um pequeno espaço entre os parágrafos do rodapé */
+}
+
+footer a {
+    color: var(--cor-secundaria); /* Deixa o link de email com a cor amarela de destaque */
+    font-weight: bold;
+}
+/* =================================
+   6. ESTILOS DOS CARDS (PÁGINA DE PROJETOS)
+   ================================= */
+
+/* Contêiner dos artigos na página de projetos */
+main {
+    /* Esta é a parte importante! Ativamos o Flexbox. */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: var(--espaco-m); /* Cria um espaço consistente entre os cards */
+}
+
+article {
+    background-color: var(--cor-branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px; /* Deixa as bordas do card arredondadas */
+    padding: var(--espaco-s);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona uma sombra sutil */
+    
+    /* Flexbox: Define como cada card deve se comportar */
+    flex: 1 1 300px; /* Mágica do Flexbox: cresce, encolhe, com base de 300px */
+}
+
+article h2 {
+    margin-top: 0; /* Remove a margem de cima do título do card */
+}
+/* =================================
+   7. ESTILOS DO FORMULÁRIO (PÁGINA DE CADASTRO)
+   ================================= */
+
+form {
+    background-color: var(--cor-branco);
+    padding: var(--espaco-l);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    margin-bottom: var(--espaco-m);
+}
+
+legend {
+    font-weight: bold;
+    color: var(--cor-primaria);
+    padding: 0 var(--espaco-xs);
+}
+
+label {
+    display: block; /* Faz com que o label ocupe uma linha inteira */
+    margin-bottom: var(--espaco-xs);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%; /* Faz o campo ocupar toda a largura disponível */
+    padding: var(--espaco-s);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+button[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-s) var(--espaco-m);
+    border: none;
+    border-radius: 4px;
+    font-size: var(--tamanho-p);
+    font-weight: bold;
+    cursor: pointer; /* Muda o cursor para uma "mãozinha" ao passar por cima */
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #004182; /* Um tom de azul um pouco mais escuro */
+}
+/* =================================
+   8. LAYOUT PRINCIPAL COM GRID
+   ================================= */
+
+.cabecalho {
+    grid-area: cabecalho;
+}
+
+.conteudo-principal {
+    grid-area: conteudo;
+}
+
+.rodape {
+    grid-area: rodape;
+}
+/* =================================
+   9. BREAKPOINTS E RESPONSIVIDADE
+   ================================= */
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTES GERAIS PARA MOBILE --- */
+    body {
+        /* Reduz o tamanho da fonte base em telas pequenas */
+        font-size: 14px;
+    }
+
+    .conteudo-principal {
+        /* Reduz as margens em telas pequenas para aproveitar melhor o espaço */
+        margin: var(--espaco-m) auto;
+        padding: var(--espaco-s);
+    }
+
+    /* --- AJUSTES NO CABEÇALHO PARA MOBILE --- */
+    .cabecalho {
+        /* Muda o layout do cabeçalho para empilhar os itens */
+        flex-direction: column;
+        gap: var(--espaco-s);
+    }
+
+    .cabecalho nav {
+        /* Faz a navegação ocupar a largura toda e centraliza os links */
+        width: 100%;
+        text-align: center;
+    }
+
+    .cabecalho nav a {
+        /* Remove a margem esquerda e adiciona um espaçamento igual em ambos os lados */
+        margin: 0 var(--espaco-xs);
+    }
+
+    /* --- AJUSTES NOS TÍTULOS PARA MOBILE --- */
+    h1 {
+        font-size: 1.8rem; /* Reduz o tamanho do H1 */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Reduz o tamanho do H2 */
+    }
+}
+/* =================================
+   10. ESTILOS DO MENU HAMBÚRGUER
+   ================================= */
+
+.menu-hamburguer {
+    display: none; /* Oculto por padrão em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000; /* Garante que ele fique acima de outros elementos */
+}
+
+.hamburguer-linha {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-branco);
+    margin: 5px 0;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* --- DENTRO DO BREAKPOINT --- */
+@media (max-width: 768px) {
+    /* Mostra o botão do hambúrguer em telas pequenas */
+    .menu-hamburguer {
+        display: block;
+    }
+
+    /* Esconde a navegação principal por padrão em telas pequenas */
+    .navegacao-principal {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--cor-primaria);
+        
+        /* Flexbox para centralizar os links */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Classe que o JavaScript vai adicionar/remover */
+    .navegacao-principal.ativo {
+        display: flex; /* Mostra o menu quando a classe 'ativo' está presente */
+    }
+
+    /* Estilo dos links dentro do menu aberto */
+    .navegacao-principal a {
+        color: var(--cor-branco);
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+}
