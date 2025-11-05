@@ -106,13 +106,13 @@ function validaTelefone(telefone) {
 
 const projetos = [
     {
-        imagem: "/projeto-ong/imagens/mutirao.jpg",
+        imagem: "/imagens/mutirao.jpg",
         alt: "Voluntários atendendo a comunidade em um evento ao ar livre.",
         titulo: "Mutirão da Cidadania",
         descricao: "Periodicamente, organizamos mutirões em comunidades para oferecer orientação jurídica gratuita, auxílio na emissão de documentos e resolução de pequenas causas. É um dia de intensa mobilização social e exercício da cidadania."
     },
     {
-        imagem: "/projeto-ong/imagens/escolas.jpg",
+        imagem: "/imagens/escolas.jpg",
         alt: "Advogado voluntário dando uma palestra para jovens em uma sala de aula.",
         titulo: "Justiça nas Escolas",
         descricao: "Levamos palestras e oficinas para escolas públicas, ensinando noções básicas de direitos e deveres para jovens e adolescentes. Acreditamos que a educação é a principal ferramenta para a prevenção de conflitos e para a formação de cidadãos conscientes."
